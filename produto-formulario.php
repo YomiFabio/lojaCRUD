@@ -1,42 +1,20 @@
-<?php include("cabecalho.php"); 
+<?php include("cabecalho.php");
+
 include("conecta.php");
 include("banco-categoria.php");
-    $categorias = listaCategorias($conexao);
+
+include("logica-usuario.php");
+
+verificaUsuario();
+
+$produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1");
+$usado = "";
+$categorias = listaCategorias($conexao);
 ?>
             <h1>Formulário de produto</h1>
     <form action="adiciona-produto.php" method="POST">
         <table class="table">
-            <tr>
-                <td>Nome:</td>
-                <td><input class="form-control" type="text" name="nome" id=""></td>
-            </tr>
-            <tr>
-                <td>Preço: </td>
-                <td><input class="form-control" type="number" name="preco" id=""></td>
-            </tr>
-            <tr>
-                <td>Descrição</td>
-                <td> <textarea class="form-control" name="descricao"></textarea> </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="checkbox" name="usado" value="true">Usado</td>
-            </tr>
-            <tr>
-                <td>Categoria</td>
-                    <td>
-                        <select name="categoria_id" class="form-control">
-                        <?php foreach($categorias as $categoria): ?>
-                        <option value="<?=$categoria['id']?>">
-                            <?=$categoria['nome']?>
-                        </option>
-                        <?php endforeach ?>
-                        </select>
-                    </td>
-            </tr>
-            <tr>
-                <td><input class="btn btn-primary" type="submit" value="Cadastrar"></td>
-            </tr>
+            <?php include("produto-formulario-base.php"); ?>
         </table>
     </form>
     <?php include("rodape.php"); ?>

@@ -1,17 +1,11 @@
-<?php include('cabecalho.php') ?>
-<?php include('banco-produtos.php'); ?>
-<?php include('conecta.php');
+<?php require_once('cabecalho.php') ?>
+<?php require_once('banco-produtos.php'); ?>
+<?php require_once('conecta.php');
+
 $produtos =
 listaProdutos($conexao);
 ?>
-<?php 
-if(array_key_exists("removido", $_GET) && $_GET["removido"] == true){?>
-    <p class="alert-success">
-    Produto removido!
-    </p>
-<?php
-}
-?>
+
 
 <table class="table table-striped table-bordered">
     <?php

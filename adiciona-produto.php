@@ -1,7 +1,8 @@
-<?php include("cabecalho.php"); ?>
-<?php include('conecta.php');?>
-<?php include ("banco-produtos.php");?>
+<?php require_once("cabecalho.php"); ?>
+<?php require_once ("banco-produtos.php");?>
+<?php require_once ("logica-usuario.php");?>
 <?php
+verificaUsuario();
 
 $nome =  $_POST['nome'];
 $preco = $_POST['preco'];

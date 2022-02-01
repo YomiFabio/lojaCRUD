@@ -1,3 +1,6 @@
+<?php
+error_reporting(E_ALL ^ E_NOTICE);
+require_once("mostra-alerta.php"); ?>
 <html>
 
 <head>
@@ -15,12 +18,18 @@
             </a>
         </div>
         <div>
-            <ul class="nav navbar-nav">
-                <li><a href="produto-formulario.php">Adiciona Produto</a></li>
-                <li><a href="produto-lista.php">Produtos</a></li>
+            <ul class="nav navbar-light bg-light navbar-expand-lg">
+                <li><a class="nav-item nav-link" href="produto-formulario.php">Adiciona Produto</a></li>
+                <li><a class="nav-item nav-link" href="produto-lista.php">Produtos</a></li>
+                <li><a class="nav-item nav-link" href="contato.php">Contato</a></li>
             </ul>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="principal">
+
+    <?php
+mostraAlerta("success");
+mostraAlerta("danger");
+?>
